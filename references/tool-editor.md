@@ -2,6 +2,12 @@
 
 Goal: preserve flow for users creating, editing, arranging, or configuring.
 
+## Default Stack
+
+- Use `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Pinia` when the user does not care about the stack.
+- Choose Vue Flow for Vue-native node editors, LogicFlow for business workflow/BPMN-like flows, and AntV X6 for complex graph editing.
+- Use Naive UI for property panels, dialogs, forms, and configuration controls when the editor sits inside an admin-style product.
+
 ## Visual Rules
 
 - Keep toolbars stable.

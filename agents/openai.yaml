@@ -1,7 +1,7 @@
 interface:
   display_name: "Frontend Experience Designer"
-  short_description: "Project-aware frontend UX motion."
-  default_prompt: "Use $frontend-experience-designer to classify this frontend project type and apply the right UX, visual, and motion patterns."
+  short_description: "Project-aware frontend UX and stack defaults."
+  default_prompt: "Use $frontend-experience-designer to classify this frontend project type, choose the right architecture source, and apply suitable UX, visual, and motion patterns."
 
 policy:
   allow_implicit_invocation: true

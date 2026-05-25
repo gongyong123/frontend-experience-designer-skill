@@ -2,6 +2,12 @@
 
 Goal: help users complete repeated operational tasks quickly and accurately.
 
+## Default Stack
+
+- Use `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router` when the user does not care about the stack and no existing project dictates another choice.
+- In an existing project, follow the current UI library, state management, request layer, and style system.
+- Use Tailwind for layout utilities and spacing, Naive UI for production-grade controls, Sass for app-level styling and tokens.
+
 ## Visual Rules
 
 - Use dense but organized information.

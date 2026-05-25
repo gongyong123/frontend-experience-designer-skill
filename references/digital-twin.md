@@ -2,6 +2,13 @@
 
 Goal: support spatial understanding, equipment location, operational awareness, and simulation.
 
+## Default Stack
+
+- Default to `Vue3 + Vite + TypeScript + Sass + Babylon.js` for WebGL and digital twin work when the user does not care about the stack.
+- Add Pinia for scene state, selected equipment, alarm state, camera mode, filters, and panel state.
+- Add ECharts for operational charts and time-series panels.
+- Follow an existing Three.js or other WebGL stack only when the project already uses it or the user explicitly requests it.
+
 ## Visual Rules
 
 - The 3D scene or spatial model is the primary surface.

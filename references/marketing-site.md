@@ -2,6 +2,12 @@
 
 Goal: create desire, communicate value quickly, and make the product memorable.
 
+## Default Stack
+
+- For official websites, marketing sites, and product sites that may need SEO, default to `Nuxt + Vue3 + TypeScript + Sass` when the user does not care about the stack.
+- Add Pinia only when shared state is meaningful, such as user/session state, personalization, configurators, or multi-step flows.
+- For a simple one-off test page, use the shortest path instead of scaffolding a full Nuxt app.
+
 ## Visual Rules
 
 - Use a strong first viewport: product, brand, or offer must be immediately visible.

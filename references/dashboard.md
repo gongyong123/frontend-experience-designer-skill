@@ -2,6 +2,12 @@
 
 Goal: make status, trends, and anomalies easy to scan.
 
+## Default Stack
+
+- Use `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + ECharts` when no existing project dictates another choice.
+- Add Pinia for shared filters, live data status, cross-panel selections, user preferences, or drill-down state.
+- If the dashboard is part of an admin system, follow the admin system stack and use Naive UI for controls.
+
 ## Visual Rules
 
 - Establish clear KPI hierarchy.

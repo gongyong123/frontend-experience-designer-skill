@@ -53,14 +53,16 @@ Use GSAP when the experience needs:
 
 Good fit for marketing sites and immersive product pages. Usually too heavy for admin systems.
 
-## Three.js / WebGL
+## Babylon.js / WebGL
 
-Use Three.js/WebGL when:
+Use Babylon.js/WebGL when:
 
 - the product is spatial or 3D
 - digital twin scenes need camera/equipment/simulation motion
 - hardware/product showcases need 3D rotation or material lighting
 - shader/canvas effects are core to the story
+
+Default to Babylon.js for WebGL, digital twin, and 3D application work unless the existing project already uses another engine or the user explicitly requests it.
 
 Do not use WebGL only as decoration when CSS, video, or imagery would communicate better.
 

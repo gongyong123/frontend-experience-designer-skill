@@ -20,7 +20,7 @@ Use `dashboard` when the request mentions:
 
 Use `digital-twin` when the request mentions:
 
-- Three.js, 3D, digital twin, scene, camera, equipment, model, mesh, simulation, alarm highlight, data card
+- WebGL, Babylon.js, 3D, digital twin, scene, camera, equipment, model, mesh, simulation, alarm highlight, data card
 
 Use `tool-editor` when the request mentions:
 
@@ -37,6 +37,8 @@ Before making major UI choices, internally decide:
 - project type
 - primary user
 - primary task
+- user capability: non-developer, backend/partial-web developer, frontend expert
+- architecture source: existing project, reference folder, user-specified stack, empty-folder default, or simple demo
 - visual density: low, medium, high
 - motion intensity: low, medium, high, situational
 - risky patterns to avoid
@@ -48,3 +50,9 @@ Before making major UI choices, internally decide:
 - Monitoring console with charts and tables: use `dashboard`.
 - 3D operations platform: use `digital-twin` plus `dashboard`.
 - API docs with marketing hero: use `developer-portal` plus restrained `marketing-site` hero.
+
+## Empty Folder Signals
+
+- "simple test page", "quick demo", "try an effect", "just see it run": use the shortest path unless the user names a framework.
+- "build an admin framework", "official site", "platform", "dashboard system", "digital twin system": treat as long-lived and use `architecture-defaults.md`.
+- If the user is not technical, ask about business scope rather than library preference unless the architecture is genuinely undecided.
