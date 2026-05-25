@@ -23,7 +23,7 @@ This skill exists to help mixed-role teams, especially backend or full-stack dev
    - Existing project or reference folder: inspect it and follow its stack, routing, styling, state, UI library, and file conventions.
    - User specified stack: respect it unless it conflicts with the existing project; if they only name a framework, complete the missing companion choices from `references/architecture-defaults.md`.
    - Empty folder plus long-lived app/framework request: ask one concise stack question with mainstream options.
-   - Mixed long-lived product types, such as official website plus admin: confirm app separation; if the user says to decide, use the split-app defaults in `references/architecture-defaults.md`.
+   - Mixed long-lived product types, such as official website plus admin: stop and confirm app separation before scaffolding; if the user says to decide, use the split-app defaults in `references/architecture-defaults.md`.
    - Empty folder plus simple test/demo page: take the shortest path, usually vanilla HTML/CSS/JS.
    - User says "you decide", "anything is fine", or "I don't know frontend": use the organization defaults in `references/architecture-defaults.md`.
 
@@ -69,6 +69,7 @@ Read only the relevant reference file after classifying the project:
 
 - Do not make every frontend page look like a marketing site.
 - Do not make marketing sites look like admin dashboards.
+- Do not scaffold a new mixed website/admin project before resolving the app boundary.
 - Do not use big heroes, cinematic scroll, or decorative motion inside dense admin workflows.
 - Do not make dashboards flash everywhere; motion should highlight change and risk.
 - Use premium motion for brand and product storytelling, but use calm feedback for operational software.

@@ -34,14 +34,19 @@ All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS fo
 
 Use this when one request combines multiple product types, especially an official website plus admin, console, user management, dashboard, or control panel.
 
+- This is a blocking decision for a new empty project. Do not run scaffold commands or create files before the user answers, unless they already said it is a demo or asked Codex to decide.
 - Do not silently put marketing pages and admin workflows into one SPA when the project is new and long-lived.
-- Ask one boundary question: split into separate apps, or keep one app for a simple demo?
+- Ask exactly one boundary question: split into separate apps, or keep one app for a simple demo?
 - If the user says to decide, create a split structure such as `apps/website` and `apps/admin`.
 - `apps/website`: use the official site default, normally `Nuxt + Vue3 + TypeScript + Sass` for SEO.
 - `apps/admin`: use the admin default, normally `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`.
 - Website header buttons should link to the admin app URL or route boundary; do not hide admin pages inside marketing navigation unless requested.
 - If the user explicitly says it is only a quick demo, a single lightweight project with separate pages is acceptable.
 - If an existing monorepo or single-app project already exists, follow it, but mention the tradeoff when marketing and admin are being mixed.
+
+Example blocking response:
+
+`This combines an official website and an admin user-management app. For a new project, should I split it into apps/website (Nuxt for SEO) and apps/admin (Vue3/Vite/Naive UI), or keep one lightweight app only for a demo?`
 
 ## Partial Stack Completion
 
