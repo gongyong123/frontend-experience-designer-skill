@@ -8,6 +8,14 @@ Goal: help users complete repeated operational tasks quickly and accurately.
 - In an existing project, follow the current UI library, state management, request layer, and style system.
 - Use Tailwind for layout utilities and spacing, Naive UI for production-grade controls, Sass for app-level styling and tokens.
 
+## Product Defaults
+
+- Use a unified theme foundation: shared color tokens, typography, spacing, border radius, shadows, component density, and state colors.
+- If the user does not explicitly request multilingual content, write UI copy in English by default.
+- Leave an i18n extension point, such as centralized copy keys or a locale-ready structure, but do not install or wire a full i18n system by default.
+- Leave theme switching extension points, such as CSS variables, theme tokens, and a theme store shape, but do not build a full skin marketplace unless requested.
+- Keep future UI designer rules easy to apply by avoiding hard-coded one-off visual values scattered across pages.
+
 ## Visual Rules
 
 - Use dense but organized information.

@@ -21,7 +21,7 @@ Use this when the user has not specified a stack, is not a frontend specialist, 
 When the user says "you decide", "anything is fine", "I don't know frontend", or otherwise does not care about the stack:
 
 - Official website, marketing site, product site: `Nuxt + Vue3 + TypeScript + Sass` for SEO and route-level content. Add Pinia only for meaningful shared state.
-- Admin system: `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`.
+- Admin system: `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`; use English UI copy by default, keep centralized theme tokens, and leave i18n/theme-switching extension points without wiring full systems unless requested.
 - Dashboard or BI page: `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + ECharts`; add Pinia for filters, live status, cross-panel state, or user preferences.
 - WebGL, 3D, digital twin: `Vue3 + Vite + TypeScript + Sass + Babylon.js`; add Pinia for scene, selection, device, alarm, and panel state; add ECharts for operational charts.
 - Workflow, EIP, visual editor: `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Pinia`; choose Vue Flow, LogicFlow, or AntV X6 by graph complexity.
@@ -33,7 +33,7 @@ All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS fo
 
 Use this when the user says only "use Vue", "use Vue3", "use React", "use Nuxt", or "use Next" but does not specify the rest of the stack.
 
-- Vue3 admin: add `Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`.
+- Vue3 admin: add `Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`; default copy to English and keep theme/i18n extension points lightweight.
 - Vue3 dashboard: add `Vite + TypeScript + Sass + Tailwind CSS + ECharts`; add Pinia for shared filters, live status, or drill-down state.
 - Vue3 WebGL/digital twin: add `Vite + TypeScript + Sass + Babylon.js`; add Pinia for scene and equipment state.
 - Vue3 workflow/editor: add `Vite + TypeScript + Sass + Tailwind CSS + Pinia`; choose Vue Flow, LogicFlow, or AntV X6 by graph complexity.
