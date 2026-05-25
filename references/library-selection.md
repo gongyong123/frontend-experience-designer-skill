@@ -1,52 +1,75 @@
 # Library Selection
 
+Choose the lightest implementation that satisfies the project type and motion purpose.
+
 ## CSS
 
-Use CSS transitions/keyframes for:
+Use CSS for:
 
-- hover, focus, active, disabled states
-- opacity and transform changes
-- small pulses, shimmers, loops
-- simple responsive UI motion
+- hover, focus, press, disabled states
+- opacity, transform, clip-path, mask transitions
+- skeletons, shimmer, pulse, simple loops
+- admin and dashboard UI feedback
+- reduced-motion fallbacks
 
-Prefer CSS when the animation does not need timeline control, physics, layout measurement, or complex sequencing.
+CSS should be the default for ordinary UI motion.
 
-## Framework Animation Libraries
+## Small JavaScript
 
-Use the app's existing animation library if one is already present.
+Use small JS for:
 
-Use component animation for:
+- intersection-triggered section reveals
+- scroll progress variables
+- cursor-following highlights
+- count-up values
+- canvas ambient details
+- coordinating state-based UI transitions
 
-- route and panel transitions
-- enter/exit animation
+Avoid layout thrashing. Read layout once, write styles separately when possible.
+
+## Existing Framework Animation
+
+Use the app's existing framework animation library when present.
+
+Good for:
+
+- route transitions
+- component enter/exit
 - layout transitions
-- disclosure, accordion, modal, drawer behavior
+- shared element transitions
+- drawers, modals, tabs, accordions
 
-Do not add a new animation dependency for a single hover effect.
+Do not add a new dependency for simple hover or fade effects.
 
 ## GSAP
 
-Use GSAP for:
+Use GSAP when the experience needs:
 
-- timeline-heavy sequences
-- scroll-triggered storytelling
-- coordinating many elements
-- SVG path drawing or complex transforms
+- pinned scroll storytelling
+- complex timelines
+- product choreography across many elements
+- SVG path drawing or mask sequencing
+- precise scroll-linked animation
 
-Avoid GSAP for ordinary UI feedback in enterprise apps.
+Good fit for marketing sites and immersive product pages. Usually too heavy for admin systems.
 
-## Three.js
+## Three.js / WebGL
 
-Use Three.js motion for:
+Use Three.js/WebGL when:
 
-- camera fly-to and orbit transitions
-- model highlight, pulse, blink, dissolve
-- particles, flow lines, field visualization
-- shader-driven data states
-- simulation visualization
+- the product is spatial or 3D
+- digital twin scenes need camera/equipment/simulation motion
+- hardware/product showcases need 3D rotation or material lighting
+- shader/canvas effects are core to the story
 
-Always verify the canvas is nonblank, framed correctly, responsive, and performant.
+Do not use WebGL only as decoration when CSS, video, or imagery would communicate better.
 
-## Lottie
+## Video / Canvas
 
-Use Lottie only when a prepared `.json` animation asset exists and matches the brand/style. Do not invent Lottie where CSS or SVG would be simpler.
+Use video/canvas for:
+
+- cinematic product hero media
+- complex background motion that would be expensive in DOM
+- generated visual fields, particles, flows, or simulations
+
+Always provide a still or reduced-motion fallback.

@@ -1,53 +1,61 @@
 # Motion Patterns
 
-## Entrance
+Choose patterns after classifying the project type. The same animation can be excellent in a marketing site and wrong in an admin system.
 
-Use entrance motion to stage information, not to delay access.
+## Universal Micro-Interactions
 
-- Fade and translate content 8-24px.
-- Stagger repeated items by 30-70ms.
-- Avoid every section entering from a different direction.
-- Keep dashboards mostly immediate; animate changed data, not the whole page.
+Use across all project types.
 
-## Hover And Press
+- Hover: 120-180ms, no layout shift.
+- Press: immediate visual feedback.
+- Selection: persistent selected state after motion ends.
+- Loading: skeletons or inline progress where content is delayed.
+- Empty/error/success: clear state change, not just color.
 
-Use hover/press motion to show affordance.
+## Marketing / Product Site Patterns
 
-- Buttons: slight translateY, shadow, background, icon movement.
-- Cards: subtle border, shadow, image scale, or action reveal.
-- Toolbars: icon button feedback should be quick and stable.
-- Do not resize controls on hover if it shifts layout.
+- Hero entrance: product/media first, headline second, CTA last.
+- Section reveal: staggered text/media with 40-90ms offsets.
+- Scroll story: one product idea per section.
+- Product state change: crossfade, mask reveal, comparison slider, 3D/video choreography.
+- Premium hover: tactile lift, light sweep, magnetic control, image depth.
 
-## Selection And Focus
+## Admin System Patterns
 
-Use selection motion to confirm target identity.
+- Row hover and selection.
+- Drawer/modal open: 160-240ms.
+- Table loading skeleton.
+- Filter chip add/remove.
+- Form validation feedback.
+- Save state: saving, saved, failed.
 
-- Add ring, outline, glow, pulse, or camera focus.
-- Keep selected state persistent after the motion ends.
-- For 3D equipment, combine highlight + camera easing + optional data-card reveal.
+Avoid page-level cinematic motion.
 
-## Loading
+## Dashboard Patterns
 
-Use loading motion to communicate progress or skeleton state.
+- Count-up for refreshed KPI values.
+- Chart transition for filter/time-range changes.
+- Alert pulse for abnormal state.
+- Drill-down panel transition.
+- Live indicator pulse.
 
-- Skeleton shimmer for unknown content.
-- Determinate progress when real progress exists.
-- Avoid fake complex loaders for fast operations.
-- Use reduced-motion-friendly opacity changes as fallback.
+Keep data readable before motion finishes.
 
-## Transitions
+## Digital Twin Patterns
 
-Use transitions to preserve continuity between states.
+- Camera fly-to.
+- Equipment outline/glow.
+- 3D card fade/scale and follow.
+- Directional data flow.
+- Simulation overlay transition.
+- Alarm blink then acknowledged steady state.
 
-- Panels: fade + slide from the direction of navigation.
-- Modals: scale 0.98 to 1 + fade.
-- Tabs: animate indicator and content opacity.
-- Routes: keep transitions short; avoid blocking first meaningful content.
+## Tool / Editor Patterns
 
-## Ambient
+- Drag ghost and drop target.
+- Selection handles and bounding boxes.
+- Snap guide reveal.
+- Panel resize/open feedback.
+- Undo/redo/save confirmation.
 
-Use ambient motion sparingly.
-
-- Good: slow data flow, subtle grid scan, tiny particle drift, gentle 3D camera idle.
-- Bad: background motion that fights reading or interaction.
-- Stop or reduce ambient motion when a modal, editor, or dense table is active.
+Keep controls stable during motion.

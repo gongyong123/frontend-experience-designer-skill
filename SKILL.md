@@ -1,65 +1,72 @@
 ---
-name: frontend-motion-designer
-description: Design polished, purposeful frontend motion for websites and apps. Use when building or improving UI animation, micro-interactions, page transitions, loading states, digital-twin dashboards, Three.js scenes, data visualization motion, hover/selection feedback, or premium interactive web effects.
+name: frontend-experience-designer
+description: "Project-aware frontend experience and motion design for websites, admin systems, dashboards, digital twins, tools, and landing pages. Use when Codex needs to classify the frontend project type, choose matching UI/UX rules, improve visual quality, add suitable motion, or help non-frontend developers build pages with the right style: premium marketing sites, Apple-like product pages, SaaS admin, BI dashboards, Three.js/digital twin scenes, editors, and developer portals."
 ---
 
-# Frontend Motion Designer
+# Frontend Experience Designer
 
-Treat motion as product design, not decoration. Add animation only when it improves orientation, feedback, hierarchy, continuity, delight, or attention.
+Act as a project-aware frontend experience director. First identify what kind of product is being built, then apply the right visual density, layout rules, interaction patterns, and motion intensity.
 
-## Workflow
+This skill exists to help mixed-role teams, especially backend or full-stack developers, avoid using the wrong frontend style for the wrong project. A marketing site should feel memorable and premium. An admin system should feel efficient and stable. A dashboard should make status readable. A digital twin should support spatial understanding.
 
-1. Identify the experience type:
-   - SaaS/dashboard
-   - digital twin or 3D scene
-   - landing page
-   - portfolio/editorial page
-   - game or interactive tool
-   - data visualization
+## Core Workflow
 
-2. Define the motion purpose before coding:
-   - `orientation`: help users understand where they are
-   - `feedback`: confirm hover, press, select, success, error
-   - `hierarchy`: guide attention to what changed
-   - `continuity`: connect one state/view to another
-   - `delight`: add memorable polish without blocking work
-   - `alert`: signal risk, alarm, abnormal state
+1. Classify the project type before designing:
+   - `marketing-site`: official website, product launch, landing page, brand page
+   - `admin-system`: backend management, CRUD, permissions, tables, forms
+   - `dashboard`: BI, monitoring, metrics, command center, data overview
+   - `digital-twin`: Three.js, 3D scene, equipment, spatial data, simulation
+   - `tool-editor`: editor, canvas, workflow builder, configuration workbench
+   - `developer-portal`: docs, API reference, SDK, integration guide
 
-3. Pick the lightest implementation that fits:
-   - CSS transitions for hover, focus, press, opacity, transform
-   - CSS keyframes for small loops, shimmer, pulse, ambient effects
-   - Framework animation libraries for component/layout transitions
-   - GSAP only for timeline-heavy sequences or complex orchestration
-   - Three.js for spatial camera, object, shader, particle, and 3D scene motion
-   - Lottie only when a prepared vector animation asset exists
+2. Choose the correct experience mode:
+   - Marketing sites optimize for desire, clarity, brand, story, conversion.
+   - Admin systems optimize for speed, predictability, scanability, low cognitive load.
+   - Dashboards optimize for hierarchy, anomaly detection, trend reading, live status.
+   - Digital twins optimize for spatial understanding, selection, camera motion, data overlays.
+   - Tool/editors optimize for continuous work, stable controls, precise feedback.
+   - Developer portals optimize for readability, navigation, code clarity, trust.
 
-4. Apply restraint:
-   - Prefer `transform` and `opacity`
-   - Avoid animating layout-heavy properties unless necessary
-   - Keep micro-interactions around 120-250ms
-   - Keep view transitions around 300-700ms
-   - Use easing that feels physical; avoid linear UI motion
-   - Respect `prefers-reduced-motion`
+3. Set motion intensity:
+   - `low`: admin systems, forms, dense tables, tools during active work
+   - `medium`: dashboards, docs, SaaS product UI, onboarding flows
+   - `high`: marketing sites, product launches, portfolios, immersive WebGL pages
+   - `situational`: digital twins use strong motion only for camera, selection, alerts, simulation
 
-5. Verify the result:
-   - No jank or long main-thread work
-   - No text overlap or clipped controls
-   - No constant motion competing with primary tasks
-   - Mobile layout remains calm and usable
-   - Animation still makes sense with reduced motion enabled
+4. Apply type-specific rules from references.
 
-## Motion Patterns
+5. Verify:
+   - The page type is visually recognizable.
+   - The layout helps the target user finish the job.
+   - Motion supports comprehension or brand, not noise.
+   - Text, controls, and data stay readable on desktop and mobile.
+   - Reduced-motion and performance constraints are respected.
 
-Use `references/motion-patterns.md` when deciding what animation pattern to add.
+## Reference Selection
 
-Use `references/library-selection.md` when choosing CSS, framework animation, GSAP, Three.js, or Lottie.
+Read only the relevant reference file after classifying the project:
 
-Use `references/performance-checklist.md` before finalizing significant animation work.
+- `references/project-classifier.md`: use when the project type is ambiguous.
+- `references/marketing-site.md`: official websites, landing pages, product launch pages, Apple-like premium sites.
+- `references/admin-system.md`: management systems, CRUD, tables, permissions, forms, enterprise software.
+- `references/dashboard.md`: BI dashboards, monitoring, command centers, data-heavy overview pages.
+- `references/digital-twin.md`: Three.js, 3D, digital twin, equipment selection, alarms, simulation.
+- `references/tool-editor.md`: canvas editors, workflow builders, configuration tools, creation surfaces.
+- `references/developer-portal.md`: docs, API reference, SDK pages, integration portals.
+- `references/library-selection.md`: choose CSS, JS, GSAP, Three.js, video, or framework animation.
+- `references/performance-checklist.md`: verify animation performance and accessibility.
 
-Use `references/digital-twin-motion.md` for 3D, digital twin, industrial dashboard, alarm, camera, equipment, and spatial data-card interactions.
+## Default Rules
 
-## Default Taste
+- Do not make every frontend page look like a marketing site.
+- Do not make marketing sites look like admin dashboards.
+- Do not use big heroes, cinematic scroll, or decorative motion inside dense admin workflows.
+- Do not make dashboards flash everywhere; motion should highlight change and risk.
+- Use premium motion for brand and product storytelling, but use calm feedback for operational software.
+- Prefer fewer, stronger ideas over many animated decorations.
 
-Make interfaces feel alive, legible, and responsive. If motion only adds noise, remove it.
+## Repository Description Suggestion
 
-For operational tools, dashboards, and enterprise systems, prefer quiet confidence over spectacle. For digital twin and 3D work, reserve stronger motion for camera travel, equipment selection, alarms, data flow, and simulation states.
+Use this for the GitHub repository description:
+
+`A Codex skill that helps teams build project-aware frontend experiences: premium landing pages, admin systems, dashboards, digital twins, editors, developer portals, and polished motion design.`

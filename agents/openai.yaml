@@ -1,7 +1,7 @@
 interface:
-  display_name: "Frontend Motion Designer"
-  short_description: "Purposeful web motion design."
-  default_prompt: "Use $frontend-motion-designer to add polished, performant, purposeful motion to this frontend experience."
+  display_name: "Frontend Experience Designer"
+  short_description: "Project-aware frontend UX motion."
+  default_prompt: "Use $frontend-experience-designer to classify this frontend project type and apply the right UX, visual, and motion patterns."
 
 policy:
   allow_implicit_invocation: true
