@@ -7,8 +7,9 @@ Use this when the user has not specified a stack, is not a frontend specialist, 
 1. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
 2. Reference folder wins when provided: mirror its stack and project conventions.
 3. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
-4. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
-5. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
+4. Mixed long-lived product types need an app boundary decision before scaffolding.
+5. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
+6. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
 
 ## User Capability
 
@@ -28,6 +29,19 @@ When the user says "you decide", "anything is fine", "I don't know frontend", or
 - Developer portal or docs with SEO needs: prefer Nuxt; keep motion restrained and code examples readable.
 
 All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS for admin, dashboard, workflow, and utility-heavy product UI unless the existing project uses another styling system.
+
+## Mixed Product Architecture
+
+Use this when one request combines multiple product types, especially an official website plus admin, console, user management, dashboard, or control panel.
+
+- Do not silently put marketing pages and admin workflows into one SPA when the project is new and long-lived.
+- Ask one boundary question: split into separate apps, or keep one app for a simple demo?
+- If the user says to decide, create a split structure such as `apps/website` and `apps/admin`.
+- `apps/website`: use the official site default, normally `Nuxt + Vue3 + TypeScript + Sass` for SEO.
+- `apps/admin`: use the admin default, normally `Vue3 + Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`.
+- Website header buttons should link to the admin app URL or route boundary; do not hide admin pages inside marketing navigation unless requested.
+- If the user explicitly says it is only a quick demo, a single lightweight project with separate pages is acceptable.
+- If an existing monorepo or single-app project already exists, follow it, but mention the tradeoff when marketing and admin are being mixed.
 
 ## Partial Stack Completion
 
@@ -50,6 +64,7 @@ Do not add a companion library just because it is common. Add state, query, anim
 Ask one concise question when:
 
 - The folder is empty and the user asks for a long-lived framework, admin, official site, dashboard, or platform.
+- A new request combines an official site with admin, user management, dashboard, or control panel and does not specify whether to split apps.
 - The requested stack conflicts with the existing project.
 - The user asks for a major architecture decision that affects future maintenance.
 

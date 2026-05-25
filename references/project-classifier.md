@@ -47,6 +47,7 @@ Before making major UI choices, internally decide:
 
 - SaaS marketing homepage: use `marketing-site`.
 - SaaS logged-in product: use `admin-system` or `tool-editor`.
+- Official website plus admin/user management/control panel: treat as `marketing-site + admin-system`; use `architecture-defaults.md` and confirm whether to split into separate apps.
 - Monitoring console with charts and tables: use `dashboard`.
 - 3D operations platform: use `digital-twin` plus `dashboard`.
 - API docs with marketing hero: use `developer-portal` plus restrained `marketing-site` hero.
