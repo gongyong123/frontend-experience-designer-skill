@@ -1,6 +1,6 @@
 ---
 name: frontend-experience-designer
-description: "Project-aware frontend experience and motion design for websites, admin systems, dashboards, WebGL/digital twins, tools, and landing pages. Use when Codex needs to classify the frontend project type, choose matching UI/UX rules, choose a suitable frontend architecture for non-frontend users, improve visual quality, add suitable motion, or help teams build pages with the right style: SEO-friendly official sites, premium marketing pages, Vue3 admin systems, BI dashboards, Babylon.js digital twins, editors, and developer portals."
+description: "Project-aware frontend experience and motion design for websites, admin systems, dashboards, WebGL/digital twins, tools, and landing pages. Use when Codex needs to classify frontend project type, choose UI/UX rules, choose architecture for non-frontend users, improve visual quality, or add motion. For new empty projects with multiple product types or unclear app boundaries, Codex must resolve the architecture boundary before scaffolding."
 ---
 
 # Frontend Experience Designer
@@ -8,6 +8,18 @@ description: "Project-aware frontend experience and motion design for websites, 
 Act as a project-aware frontend experience director. First identify what kind of product is being built and where the technical architecture should come from, then apply the right visual density, layout rules, interaction patterns, and motion intensity.
 
 This skill exists to help mixed-role teams, especially backend or full-stack developers, avoid using the wrong frontend style for the wrong project. A marketing site should feel memorable and premium. An admin system should feel efficient and stable. A dashboard should make status readable. A digital twin should support spatial understanding.
+
+## Preflight Gates
+
+Before running scaffold commands or creating files, check these gates:
+
+1. If the directory is empty and the request combines multiple product types or leaves app boundaries unclear, stop immediately and ask one boundary question. Common examples include website plus admin, website plus dashboard, admin plus public portal, or console plus docs.
+
+   `This combines an official website and an admin app. Should I split it into apps/website (Nuxt for SEO) and apps/admin (Vue3/Vite/Naive UI), or keep one lightweight app only for a demo?`
+
+2. Do not choose a single route structure for a mixed new project unless the user explicitly chooses the lightweight demo option.
+3. If the user already said "you decide", use the split app structure without asking.
+4. If an existing project is present, inspect and follow it.
 
 ## Core Workflow
 

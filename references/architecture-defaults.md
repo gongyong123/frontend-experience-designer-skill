@@ -4,10 +4,10 @@ Use this when the user has not specified a stack, is not a frontend specialist, 
 
 ## Decision Order
 
-1. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
-2. Reference folder wins when provided: mirror its stack and project conventions.
-3. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
-4. Mixed long-lived product types need an app boundary decision before scaffolding.
+1. Blocking gate first: empty folder plus official website/homepage and admin/user management/control panel must stop for app-boundary confirmation before scaffolding.
+2. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
+3. Reference folder wins when provided: mirror its stack and project conventions.
+4. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
 5. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
 6. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
 
@@ -35,6 +35,7 @@ All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS fo
 Use this when one request combines multiple product types, especially an official website plus admin, console, user management, dashboard, or control panel.
 
 - This is a blocking decision for a new empty project. Do not run scaffold commands or create files before the user answers, unless they already said it is a demo or asked Codex to decide.
+- If the user says "homepage", "official website", or "website" plus "admin", "user management", "dashboard", "console", or "control panel", treat it as this blocking case.
 - Do not silently put marketing pages and admin workflows into one SPA when the project is new and long-lived.
 - Ask exactly one boundary question: split into separate apps, or keep one app for a simple demo?
 - If the user says to decide, create a split structure such as `apps/website` and `apps/admin`.
@@ -47,6 +48,10 @@ Use this when one request combines multiple product types, especially an officia
 Example blocking response:
 
 `This combines an official website and an admin user-management app. For a new project, should I split it into apps/website (Nuxt for SEO) and apps/admin (Vue3/Vite/Naive UI), or keep one lightweight app only for a demo?`
+
+Bad response to avoid:
+
+`This is an empty directory, so I will scaffold a lightweight Vite + Vue single-page app with / and /admin/users routes.`
 
 ## Partial Stack Completion
 
