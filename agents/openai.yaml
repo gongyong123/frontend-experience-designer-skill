@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Motion Designer"
+  short_description: "Purposeful web motion design."
+  default_prompt: "Use $frontend-motion-designer to add polished, performant, purposeful motion to this frontend experience."
+
+policy:
+  allow_implicit_invocation: true
