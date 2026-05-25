@@ -6,7 +6,7 @@ Use this when the user has not specified a stack, is not a frontend specialist, 
 
 1. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
 2. Reference folder wins when provided: mirror its stack and project conventions.
-3. User-specified stack wins when compatible with the project.
+3. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
 4. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
 5. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
 
@@ -28,6 +28,22 @@ When the user says "you decide", "anything is fine", "I don't know frontend", or
 - Developer portal or docs with SEO needs: prefer Nuxt; keep motion restrained and code examples readable.
 
 All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS for admin, dashboard, workflow, and utility-heavy product UI unless the existing project uses another styling system.
+
+## Partial Stack Completion
+
+Use this when the user says only "use Vue", "use Vue3", "use React", "use Nuxt", or "use Next" but does not specify the rest of the stack.
+
+- Vue3 admin: add `Vite + TypeScript + Sass + Tailwind CSS + Naive UI + Pinia + Vue Router`.
+- Vue3 dashboard: add `Vite + TypeScript + Sass + Tailwind CSS + ECharts`; add Pinia for shared filters, live status, or drill-down state.
+- Vue3 WebGL/digital twin: add `Vite + TypeScript + Sass + Babylon.js`; add Pinia for scene and equipment state.
+- Vue3 workflow/editor: add `Vite + TypeScript + Sass + Tailwind CSS + Pinia`; choose Vue Flow, LogicFlow, or AntV X6 by graph complexity.
+- Vue/Nuxt official site: prefer `Nuxt + Vue3 + TypeScript + Sass` for SEO. If the user explicitly says plain Vue or SPA, confirm SEO is not required before avoiding Nuxt.
+- React admin: add `Vite + TypeScript + Sass + Tailwind CSS + TanStack Query + Zustand`; choose a React UI library only if the user or existing project provides one, otherwise ask once.
+- React dashboard: add `Vite + TypeScript + Sass + Tailwind CSS + ECharts or Recharts + TanStack Query`; add Zustand only for cross-panel client state.
+- React/Next official site: prefer `Next.js + TypeScript + Sass` for SEO, content routes, metadata, and share cards.
+- React WebGL/digital twin: add `Vite or Next by app needs + TypeScript + Sass + Babylon.js`; add Zustand for scene and equipment state.
+
+Do not add a companion library just because it is common. Add state, query, animation, chart, or WebGL libraries when the project type needs them.
 
 ## Ask-or-Decide Rules
 
