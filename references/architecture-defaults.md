@@ -44,6 +44,27 @@ When the user says "you decide", "anything is fine", "I don't know frontend", or
 
 All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS for admin, dashboard, workflow, and utility-heavy product UI unless the existing project uses another styling system.
 
+## Style System Files
+
+For new Sass-based projects, create a clear system style entry instead of scattering global visual decisions.
+
+- Default new-project convention: `src/styles/system.scss`.
+- Use `system.scss` for system-level CSS variables, Sass tokens, base surfaces, typography defaults, radius/spacing/shadow scales, semantic colors, focus rings, and shared low-level utility classes.
+- Keep component-specific styles inside the component or component stylesheet.
+- Keep page-specific composition styles inside the page or feature folder.
+- Import `system.scss` once from the app entry or root stylesheet.
+- If a project already has `tokens.scss`, `variables.scss`, `theme.scss`, `global.scss`, Tailwind config, or a UI-library theme provider, follow and extend the existing convention instead of adding `system.scss`.
+- For global user requests such as "make all corners 2px" or "change the project primary color", update the system style source of truth, not isolated page styles.
+- For local customization requests, use local classes or component variants without changing global tokens.
+
+## CSS Reuse Rules
+
+- Reuse existing tokens, utility classes, shared components, and variants before creating new CSS.
+- Promote a style into `system.scss`, tokens, or a shared component only when it represents a cross-page rule or appears in repeated UI.
+- Do not duplicate the same color, radius, spacing, shadow, or focus treatment across files with hard-coded values.
+- Use semantic names for reusable styles, such as `--color-primary`, `--surface-muted`, `--radius-card`, `--shadow-panel`, or `panel-card`, instead of visual names tied to one screen.
+- Keep CSS close to the narrowest correct owner: system tokens for global decisions, shared components for repeated behavior, pages for layout composition, and local classes for one-off exceptions.
+
 ## TypeScript Project Consistency
 
 - For TypeScript projects, keep supported project configuration TypeScript-first: use `vite.config.ts`, typed router and store files, typed env declarations, and `.ts` utility modules.

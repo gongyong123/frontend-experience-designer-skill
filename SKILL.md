@@ -83,6 +83,30 @@ Before running scaffold commands or creating files, check these gates:
    - Text, controls, and data stay readable on desktop and mobile.
    - Reduced-motion and performance constraints are respected.
 
+## Style System Inheritance
+
+Before adding or modifying UI elements, identify the current style source of truth. Prefer project facts over conversation memory.
+
+- Look for design tokens, CSS variables, Sass variables, theme providers, Tailwind config, global styles, shared components, component variants, and similar existing pages.
+- New buttons, cards, forms, tables, modals, navigation items, charts, and page sections must inherit the system style by default.
+- Do not introduce new radii, shadows, colors, gradients, spacing scales, typography scales, or component variants unless the existing system provides them or the user explicitly asks.
+- Persist global style decisions in project files, not in memory. Future work should rediscover them from the codebase.
+- If the user changes a global style token, future generated UI in that project must use the updated token rather than old visual assumptions.
+
+When the user requests a style change, infer the intended scope:
+
+- Global/system scope signals: `unified`, `global`, `all`, `every`, `whole project`, `system style`, `from now on`, `default`, or Chinese phrases such as `统一`, `全局`, `以后`, `所有`, `整个项目`, `系统风格`, `默认`.
+- Local/custom scope signals: `this`, `here`, `current page`, `only this`, `special`, or Chinese phrases such as `这个`, `这里`, `当前页面`, `只改`, `特殊`.
+- If the scope is ambiguous and the change affects tokens, shared components, or repeated UI patterns, ask whether it should be global or local before editing.
+
+Reuse CSS deliberately:
+
+- Put cross-page design decisions in tokens, CSS variables, theme files, or shared component variants.
+- Put repeated layout and component patterns in reusable classes or components.
+- Keep page-specific composition near the page or component that owns it.
+- Avoid one-off hard-coded values that duplicate existing tokens.
+- Avoid over-abstracting a style used only once.
+
 ## Color Token Defaults
 
 Do not ask for a primary color unless brand fidelity is central to the request, the user asks for brand alignment, or supplied assets make the color decision ambiguous.
