@@ -87,7 +87,7 @@ Before running scaffold commands or creating files, check these gates:
 
 Before adding or modifying UI elements, identify the current style source of truth. Prefer project facts over conversation memory.
 
-- Look for design tokens, CSS variables, Sass variables, theme providers, Tailwind config, global styles, shared components, component variants, and similar existing pages.
+- Look for design tokens, CSS variables, Sass/Less/Stylus variables, theme providers, Tailwind/UnoCSS/Windi/Panda config, Vanilla Extract themes, CSS-in-JS themes, global styles, shared components, component variants, and similar existing pages.
 - New buttons, cards, forms, tables, modals, navigation items, charts, and page sections must inherit the system style by default.
 - Do not introduce new radii, shadows, colors, gradients, spacing scales, typography scales, or component variants unless the existing system provides them or the user explicitly asks.
 - Persist global style decisions in project files, not in memory. Future work should rediscover them from the codebase.
@@ -101,7 +101,7 @@ When the user requests a style change, infer the intended scope:
 
 Reuse CSS deliberately:
 
-- Put cross-page design decisions in tokens, CSS variables, theme files, or shared component variants.
+- Put cross-page design decisions in tokens, CSS variables, theme files, config files, recipes, shortcuts, or shared component variants according to the project's styling technology.
 - Put repeated layout and component patterns in reusable classes or components.
 - Keep page-specific composition near the page or component that owns it.
 - Avoid one-off hard-coded values that duplicate existing tokens.

@@ -49,23 +49,30 @@ All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS fo
 For new projects, create or identify one system style entry appropriate to the stack instead of scattering global visual decisions. Do not force Sass.
 
 - Sass projects: default to `src/styles/system.scss`.
+- Less projects: default to `src/styles/system.less`, `src/styles/variables.less`, or the existing Less variable file.
+- Stylus projects: default to `src/styles/system.styl`, `src/styles/variables.styl`, or the existing Stylus token file.
 - Plain CSS projects: default to `src/styles/system.css` or `styles/system.css`, following the project structure.
+- PostCSS projects: default to `src/styles/system.css` and use the existing PostCSS pipeline; do not add a preprocessor just for tokens.
 - Tailwind projects: use `tailwind.config.*` for theme-scale decisions and a system style entry such as `src/styles/system.css` or `src/styles/system.scss` for CSS variables, base surfaces, and focus rings when needed.
+- UnoCSS or Windi CSS projects: use `uno.config.*` or `windi.config.*` for theme tokens, shortcuts, rules, presets, and reusable utility patterns.
+- Panda CSS projects: use `panda.config.*` for theme tokens, semantic tokens, recipes, and slot recipes.
 - CSS Modules projects: keep global tokens and base styles in `src/styles/system.css`; keep local component styling in `*.module.css`.
-- CSS-in-JS or token-driven projects: use a theme or token source such as `src/styles/theme.ts`, `src/theme/tokens.ts`, or the existing theme provider.
+- Vanilla Extract projects: use `theme.css.ts`, `tokens.css.ts`, or the existing `createTheme` / `createGlobalTheme` source.
+- CSS-in-JS or token-driven projects: use a theme or token source such as `src/styles/theme.ts`, `src/theme/tokens.ts`, Stitches config, Emotion theme, Styled Components theme, or the existing theme provider.
 - UI-library theme projects: prefer the library theme provider or token config for global component decisions.
 - Use the chosen system style entry for system-level CSS variables, tokens, base surfaces, typography defaults, radius/spacing/shadow scales, semantic colors, focus rings, and shared low-level utility classes.
 - Keep component-specific styles inside the component or component stylesheet.
 - Keep page-specific composition styles inside the page or feature folder.
 - Import the system style entry once from the app entry or root stylesheet when the stack uses global CSS.
-- If a project already has `tokens`, `variables`, `theme`, `global`, Tailwind config, CSS-in-JS theme files, or a UI-library theme provider, follow and extend the existing convention instead of adding a new system file.
+- If a project already has `tokens`, `variables`, `theme`, `global`, Tailwind/UnoCSS/Windi/Panda config, Vanilla Extract themes, CSS-in-JS theme files, preprocessor variable files, or a UI-library theme provider, follow and extend the existing convention instead of adding a new system file.
+- If the user selects a styling technology other than Sass, use the equivalent system style source for that technology. Do not downgrade, switch styling systems, or add Sass unless the user asks.
 - For global user requests such as "make all corners 2px" or "change the project primary color", update the system style source of truth, not isolated page styles.
 - For local customization requests, use local classes or component variants without changing global tokens.
 
 ## CSS Reuse Rules
 
 - Reuse existing tokens, utility classes, shared components, and variants before creating new CSS.
-- Promote a style into the system style entry, tokens, theme config, or a shared component only when it represents a cross-page rule or appears in repeated UI.
+- Promote a style into the system style entry, tokens, theme config, utility shortcuts, recipes, or a shared component only when it represents a cross-page rule or appears in repeated UI.
 - Do not duplicate the same color, radius, spacing, shadow, or focus treatment across files with hard-coded values.
 - Use semantic names for reusable styles, such as `--color-primary`, `--surface-muted`, `--radius-card`, `--shadow-panel`, or `panel-card`, instead of visual names tied to one screen.
 - Keep CSS close to the narrowest correct owner: system tokens for global decisions, shared components for repeated behavior, pages for layout composition, and local classes for one-off exceptions.
