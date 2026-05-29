@@ -34,12 +34,17 @@ Before running scaffold commands or creating files, check these gates:
 2. Do not choose a single route structure for a mixed new project unless the user explicitly chooses the lightweight demo option.
 3. If the user already said "you decide", use the split app structure without asking.
 4. If an existing project is present, inspect and follow it.
+5. Before scaffolding, installing dependencies, or running a modern frontend framework, check whether Node.js and a package manager are available with `node -v` and the relevant package-manager command.
+6. If Node.js is missing, do not silently install it. Explain that modern frontend tooling requires Node.js, then ask whether to install Node.js, use an available bundled/session runtime if appropriate, or build a static HTML/CSS/JS demo instead.
+7. Installing Node.js or changing machine-level developer tools requires explicit user approval. A bundled/session runtime can help run the current task, but do not imply that it installs Node.js on the user's system.
 
 ## Core Workflow
 
 1. Infer the current collaboration mode. Re-evaluate it on every turn; it is a working strategy, not a user identity.
 
-2. Classify the project type before designing:
+2. Run the preflight gates before creating files or choosing final tooling.
+
+3. Classify the project type before designing:
    - `marketing-site`: official website, product launch, landing page, brand page
    - `admin-system`: backend management, CRUD, permissions, tables, forms
    - `dashboard`: BI, monitoring, metrics, command center, data overview
@@ -47,7 +52,7 @@ Before running scaffold commands or creating files, check these gates:
    - `tool-editor`: editor, canvas, workflow builder, configuration workbench
    - `developer-portal`: docs, API reference, SDK, integration guide
 
-3. Decide the architecture source before choosing libraries:
+4. Decide the architecture source before choosing libraries:
    - Existing project or reference folder: inspect it and follow its stack, routing, styling, state, UI library, and file conventions.
    - User specified stack: respect it unless it conflicts with the existing project; if they only name a framework, complete the missing companion choices from `references/architecture-defaults.md`.
    - Empty folder plus long-lived app/framework request: ask one concise stack question with mainstream options.
@@ -55,7 +60,7 @@ Before running scaffold commands or creating files, check these gates:
    - Empty folder plus simple test/demo page: take the shortest path, usually vanilla HTML/CSS/JS.
    - User says "you decide", "anything is fine", or "I don't know frontend": use the organization defaults in `references/architecture-defaults.md`.
 
-4. Choose the correct experience mode:
+5. Choose the correct experience mode:
    - Marketing sites optimize for desire, clarity, brand, story, conversion.
    - Admin systems optimize for speed, predictability, scanability, low cognitive load.
    - Dashboards optimize for hierarchy, anomaly detection, trend reading, live status.
@@ -63,15 +68,15 @@ Before running scaffold commands or creating files, check these gates:
    - Tool/editors optimize for continuous work, stable controls, precise feedback.
    - Developer portals optimize for readability, navigation, code clarity, trust.
 
-5. Set motion intensity:
+6. Set motion intensity:
    - `low`: admin systems, forms, dense tables, tools during active work
    - `medium`: dashboards, docs, SaaS product UI, onboarding flows
    - `high`: marketing sites, product launches, portfolios, immersive WebGL pages
    - `situational`: digital twins use strong motion only for camera, selection, alerts, simulation
 
-6. Apply type-specific rules from references.
+7. Apply type-specific rules from references.
 
-7. Verify:
+8. Verify:
    - The page type is visually recognizable.
    - The layout helps the target user finish the job.
    - Motion supports comprehension or brand, not noise.

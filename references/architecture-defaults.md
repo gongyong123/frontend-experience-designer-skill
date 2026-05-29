@@ -5,11 +5,25 @@ Use this when the user has not specified a stack, is not a frontend specialist, 
 ## Decision Order
 
 1. Blocking gate first: empty folder plus official website/homepage and admin/user management/control panel must stop for app-boundary confirmation before scaffolding.
-2. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
-3. Reference folder wins when provided: mirror its stack and project conventions.
-4. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
-5. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
-6. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
+2. Runtime preflight before modern tooling: check `node -v` and the relevant package manager before scaffolding, installing dependencies, or running a dev server.
+3. Existing project wins: inspect `package.json`, router, layout, state, UI library, request layer, and styling before changing code.
+4. Reference folder wins when provided: mirror its stack and project conventions.
+5. User-specified stack wins when compatible with the project. If the user only names a framework, complete the missing companion choices from the partial-stack rules below.
+6. Empty folder plus simple test/demo page: choose the shortest path, usually vanilla HTML/CSS/JS.
+7. Empty folder plus large or long-lived app: ask one concise stack question. If the user does not care, apply the defaults below.
+
+## Runtime Preflight
+
+- Modern frontend frameworks require Node.js to scaffold, install dependencies, and run local dev servers.
+- If Node.js and a package manager are present, proceed with the chosen framework and run the project.
+- If Node.js is missing, do not silently install it or continue as if the framework can run. Ask whether to install Node.js, use an available bundled/session runtime for this task, or generate a static HTML/CSS/JS demo instead.
+- Treat system Node.js installation as a machine-level environment change that requires explicit user approval.
+- When using a bundled/session runtime, say clearly that it helps run the current task but does not mean Node.js is installed on the user's machine.
+- If the user asked for a quick visual demo and Node.js is missing, prefer offering static HTML/CSS/JS as the lowest-friction option.
+
+Example response when Node.js is missing:
+
+`This project would use a modern frontend toolchain, which needs Node.js to install dependencies and start the dev server. I do not see Node.js available here. Should I install Node.js for you, use a bundled runtime just for this session if available, or make a static HTML/CSS/JS demo that runs without Node?`
 
 ## User Capability
 
@@ -29,6 +43,14 @@ When the user says "you decide", "anything is fine", "I don't know frontend", or
 - Developer portal or docs with SEO needs: prefer Nuxt; keep motion restrained and code examples readable.
 
 All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS for admin, dashboard, workflow, and utility-heavy product UI unless the existing project uses another styling system.
+
+## TypeScript Project Consistency
+
+- For TypeScript projects, keep supported project configuration TypeScript-first: use `vite.config.ts`, typed router and store files, typed env declarations, and `.ts` utility modules.
+- Do not generate `vite.config.js` for a new TypeScript Vite project unless the existing project already uses JavaScript config or the user explicitly asks for JavaScript config.
+- Keep configuration, source files, and examples aligned with the selected language mode. Avoid mixing `.js` and `.ts` casually in new projects.
+- If following an existing project, preserve its config style even if it differs from the defaults.
+- If a tool only supports JavaScript config or the local convention is JavaScript config, use it and briefly explain the exception when relevant.
 
 ## Mixed Product Architecture
 
