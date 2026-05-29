@@ -59,6 +59,19 @@ When no brand system is provided, choose a restrained product-appropriate palett
 - Form validation with clear inline messages.
 - Empty state with one primary action.
 
+## Page Intent Defaults
+
+When a user asks for a broad admin page, map the wording to a standard frontend pattern before building.
+
+- `list page`, `management page`, `CRUD page`: page header, toolbar, filter/search area, data table, primary action, row actions, pagination, loading state, empty state, error state, and feedback messages.
+- `detail page`: page header with back action, summary area, key fields, related panels/tabs, activity/status area, and clear secondary actions.
+- `edit page`, `create page`, `form page`: grouped form sections, validation states, save/cancel actions, dirty/submitting states, and success/error feedback.
+- `settings page`: grouped settings panels, inline help text, toggles/selects/inputs, save state, and reset/cancel behavior when relevant.
+- `log page`, `audit page`: time/filter controls, searchable table or timeline, severity/status tags, detail drawer, empty/loading/error states.
+- `monitoring page`: status summary, time range controls, chart panels, alert list, refresh state, and compact operational density.
+
+For existing admin projects, find and follow similar pages before creating a new pattern. If no match exists, use these defaults conservatively and avoid adding business-specific logic that was not requested.
+
 ## Avoid
 
 - Big marketing heroes.

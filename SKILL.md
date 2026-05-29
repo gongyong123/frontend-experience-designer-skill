@@ -94,6 +94,17 @@ Do not ask for a primary color unless brand fidelity is central to the request, 
 - Avoid disconnected accents where buttons, form focus, active navigation, charts, and selections feel like unrelated themes.
 - Respect existing project tokens and design systems before introducing new color values.
 
+## Page Intent Inference
+
+When the user asks to add a page with broad wording, infer the frontend page pattern from keywords and project context before implementing. Do not treat broad words literally if the project context implies a common product pattern.
+
+- Examples: `list page`, `management page`, `CRUD page`, `detail page`, `edit page`, `form page`, `settings page`, `log page`, `monitoring page`, `dashboard`, `overview`, `profile page`, `search page`.
+- In existing projects, search for similar pages first. Reuse their layout, routing style, navigation placement, components, table/form patterns, state handling, mock/API conventions, naming, spacing, and visual tokens.
+- If no similar page exists, use the smallest standard frontend pattern that satisfies the inferred page type. Keep it complete enough to feel usable, but do not invent business workflows.
+- A broad `list page` inside an admin or product-management context usually means a management table page with filters, actions, pagination, loading, empty, error, and feedback states. It is not a bare list and not an invented domain system.
+- Ask only when the missing detail blocks frontend integration quality, such as route placement, navigation grouping, or conflict with existing project conventions.
+- Do not infer domain models, permission rules, approval flows, backend contracts, persistence semantics, billing logic, or authentication strategy. Use neutral mock data and frontend placeholders when business details are not provided.
+
 ## Reference Selection
 
 Read only the relevant reference file after classifying the project:
