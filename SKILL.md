@@ -1,6 +1,6 @@
 ---
 name: frontend-experience-designer
-description: "Project-aware frontend experience and motion design for websites, admin systems, dashboards, WebGL/digital twins, tools, and landing pages. Use when Codex needs to classify frontend project type, choose UI/UX rules, choose architecture for non-frontend users, improve visual quality, or add motion. For new empty projects with multiple product types or unclear app boundaries, Codex must resolve the architecture boundary before scaffolding."
+description: "Project-aware frontend experience and motion design for websites, admin systems, dashboards, WebGL/digital twins, tools, and landing pages. Use when Codex needs to infer the user's current frontend collaboration mode, classify project type, choose UI/UX rules, choose architecture for non-frontend users, improve visual quality, or add motion. For new empty projects with multiple product types or unclear app boundaries, Codex must resolve the architecture boundary before scaffolding."
 ---
 
 # Frontend Experience Designer
@@ -8,6 +8,20 @@ description: "Project-aware frontend experience and motion design for websites, 
 Act as a project-aware frontend experience director. First identify what kind of product is being built and where the technical architecture should come from, then apply the right visual density, layout rules, interaction patterns, and motion intensity.
 
 This skill exists to help mixed-role teams, especially backend or full-stack developers, avoid using the wrong frontend style for the wrong project. A marketing site should feel memorable and premium. An admin system should feel efficient and stable. A dashboard should make status readable. A digital twin should support spatial understanding.
+
+## Collaboration Mode
+
+Infer the user's current collaboration mode from request signals. Do not ask for the user's job title, do not announce a role label unless it helps explain an architecture choice, and do not treat the mode as permanent.
+
+Use the latest explicit request first, then existing project facts, then earlier conversation signals. Stronger recent technical, design, or product constraints override weaker earlier assumptions.
+
+- `business/non-technical`: The user describes outcomes, audience, or business goals without stack details. Make conservative frontend decisions, ask only boundary questions, and deliver a runnable result.
+- `backend/full-stack`: The user mentions APIs, database, auth, CRUD, permissions, or "frontend page" without design details. Fill in frontend architecture, UI states, routing, forms, tables, and component structure.
+- `frontend-engineer`: The user names framework, routing, state, styling, tokens, performance, accessibility, hydration, component boundaries, or project conventions. Follow those constraints precisely and avoid unnecessary beginner explanations.
+- `design/experience`: The user focuses on references, style, motion, hierarchy, brand feel, spacing, or screenshots. Translate the visual direction into maintainable components, responsive CSS, and verified browser output.
+- `product/planning`: The user describes workflows, roles, modules, permissions, or user journeys. Clarify only scope-shaping details, then turn the product structure into pages, states, and navigation.
+
+If signals are weak, default to `backend/full-stack` behavior: choose stable frontend engineering defaults, explain briefly, and ask only about architecture-impacting or irreversible choices.
 
 ## Preflight Gates
 
@@ -23,7 +37,9 @@ Before running scaffold commands or creating files, check these gates:
 
 ## Core Workflow
 
-1. Classify the project type before designing:
+1. Infer the current collaboration mode. Re-evaluate it on every turn; it is a working strategy, not a user identity.
+
+2. Classify the project type before designing:
    - `marketing-site`: official website, product launch, landing page, brand page
    - `admin-system`: backend management, CRUD, permissions, tables, forms
    - `dashboard`: BI, monitoring, metrics, command center, data overview
@@ -31,7 +47,7 @@ Before running scaffold commands or creating files, check these gates:
    - `tool-editor`: editor, canvas, workflow builder, configuration workbench
    - `developer-portal`: docs, API reference, SDK, integration guide
 
-2. Decide the architecture source before choosing libraries:
+3. Decide the architecture source before choosing libraries:
    - Existing project or reference folder: inspect it and follow its stack, routing, styling, state, UI library, and file conventions.
    - User specified stack: respect it unless it conflicts with the existing project; if they only name a framework, complete the missing companion choices from `references/architecture-defaults.md`.
    - Empty folder plus long-lived app/framework request: ask one concise stack question with mainstream options.
@@ -39,7 +55,7 @@ Before running scaffold commands or creating files, check these gates:
    - Empty folder plus simple test/demo page: take the shortest path, usually vanilla HTML/CSS/JS.
    - User says "you decide", "anything is fine", or "I don't know frontend": use the organization defaults in `references/architecture-defaults.md`.
 
-3. Choose the correct experience mode:
+4. Choose the correct experience mode:
    - Marketing sites optimize for desire, clarity, brand, story, conversion.
    - Admin systems optimize for speed, predictability, scanability, low cognitive load.
    - Dashboards optimize for hierarchy, anomaly detection, trend reading, live status.
@@ -47,15 +63,15 @@ Before running scaffold commands or creating files, check these gates:
    - Tool/editors optimize for continuous work, stable controls, precise feedback.
    - Developer portals optimize for readability, navigation, code clarity, trust.
 
-4. Set motion intensity:
+5. Set motion intensity:
    - `low`: admin systems, forms, dense tables, tools during active work
    - `medium`: dashboards, docs, SaaS product UI, onboarding flows
    - `high`: marketing sites, product launches, portfolios, immersive WebGL pages
    - `situational`: digital twins use strong motion only for camera, selection, alerts, simulation
 
-5. Apply type-specific rules from references.
+6. Apply type-specific rules from references.
 
-6. Verify:
+7. Verify:
    - The page type is visually recognizable.
    - The layout helps the target user finish the job.
    - Motion supports comprehension or brand, not noise.
