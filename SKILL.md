@@ -83,6 +83,17 @@ Before running scaffold commands or creating files, check these gates:
    - Text, controls, and data stay readable on desktop and mobile.
    - Reduced-motion and performance constraints are respected.
 
+## Color Token Defaults
+
+Do not ask for a primary color unless brand fidelity is central to the request, the user asks for brand alignment, or supplied assets make the color decision ambiguous.
+
+- If the user provides a brand color, logo, reference image, or visual direction, derive a tokenized color system from it.
+- If no primary color is provided, choose a restrained product-appropriate primary color and apply it consistently through design tokens.
+- The primary color should drive key interactive states: primary buttons, links, active navigation, selected tabs, focus rings, switches, checkboxes, radio controls, sliders, progress, chart emphasis, selected rows, and selected items.
+- Keep neutral surfaces, text, borders, and semantic status colors distinct. Do not turn the whole interface into variations of one hue.
+- Avoid disconnected accents where buttons, form focus, active navigation, charts, and selections feel like unrelated themes.
+- Respect existing project tokens and design systems before introducing new color values.
+
 ## Reference Selection
 
 Read only the relevant reference file after classifying the project:
@@ -107,6 +118,7 @@ Read only the relevant reference file after classifying the project:
 - Do not make dashboards flash everywhere; motion should highlight change and risk.
 - Use premium motion for brand and product storytelling, but use calm feedback for operational software.
 - Prefer fewer, stronger ideas over many animated decorations.
+- Do not create static-looking product UI for apps, admin systems, dashboards, editors, or tools. Core controls should have believable states and feedback even when using mock data.
 
 ## Repository Description Suggestion
 

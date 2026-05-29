@@ -23,6 +23,25 @@ Goal: help users complete repeated operational tasks quickly and accurately.
 - Keep navigation stable and predictable.
 - Use compact typography and consistent spacing.
 - Cards are for repeated items or panels, not decorative page sections.
+- Admin systems must look like modern operational software, not legacy admin templates.
+- Do not default to black or near-black sidebars. Use light, softly tinted, or restrained branded navigation surfaces unless the user requests a dark console theme.
+- Avoid old admin-template composition: dark sidebar, flat gray page background, disconnected white cards, oversized headings, sparse dashboard layouts, and generic blue accents.
+- Use a cohesive app shell with tokenized color, active navigation states, clear page hierarchy, polished table/form states, and subtle branded surfaces.
+- Use the primary color consistently for intent and selection: primary actions, active menu items, tabs, focus rings, selected rows, switches, and key chart emphasis.
+- White cards are acceptable only when they sit in a coherent surface system with deliberate borders, subtle elevation, consistent radii, and meaningful internal hierarchy.
+- Prefer borders and soft tonal surfaces over heavy shadows. Keep card radius at 6-8px unless the existing design system says otherwise.
+
+## Modern Admin Baseline
+
+When no brand system is provided, choose a restrained product-appropriate palette instead of a black/white/gray template.
+
+- Common shell structure: `AppShell`, `Sidebar`, `Topbar`, `PageHeader`, `Toolbar`, `MetricCard`, `DataPanel`, `ChartPanel`, `DataTable`, `EmptyState`, and feedback/toast primitives.
+- Default surfaces should feel connected: page background, sidebar, topbar, cards, borders, and selected states should come from one token system.
+- Use light or softly tinted navigation by default. Dark navigation is reserved for explicit dark-console requests or existing project conventions.
+- Keep dashboards work-focused: compact KPI cards, chart panels, recent activity, alerts, and tables should create a useful first screen without hero-style spacing.
+- Keep typography practical: page titles are clear but not oversized; card headings and table labels stay compact.
+- Give tables and forms complete visual states: hover, selected, focused, disabled, loading, empty, error, success, and pagination where relevant.
+- If the first rendered screen reads as "black sidebar + gray background + white cards", revise the palette and shell before finishing.
 
 ## Motion Rules
 
@@ -47,3 +66,7 @@ Goal: help users complete repeated operational tasks quickly and accurately.
 - Decorative parallax.
 - Large animated backgrounds.
 - Motion that slows repeated work.
+- Near-black default sidebars without a deliberate dark theme.
+- Flat gray pages filled with isolated white cards.
+- Generic blue buttons that are disconnected from the rest of the theme.
+- Oversized dashboard headings or card spacing that makes operational views feel empty.
