@@ -46,21 +46,26 @@ All Vue3 production projects should use TypeScript and Sass. Use Tailwind CSS fo
 
 ## Style System Files
 
-For new Sass-based projects, create a clear system style entry instead of scattering global visual decisions.
+For new projects, create or identify one system style entry appropriate to the stack instead of scattering global visual decisions. Do not force Sass.
 
-- Default new-project convention: `src/styles/system.scss`.
-- Use `system.scss` for system-level CSS variables, Sass tokens, base surfaces, typography defaults, radius/spacing/shadow scales, semantic colors, focus rings, and shared low-level utility classes.
+- Sass projects: default to `src/styles/system.scss`.
+- Plain CSS projects: default to `src/styles/system.css` or `styles/system.css`, following the project structure.
+- Tailwind projects: use `tailwind.config.*` for theme-scale decisions and a system style entry such as `src/styles/system.css` or `src/styles/system.scss` for CSS variables, base surfaces, and focus rings when needed.
+- CSS Modules projects: keep global tokens and base styles in `src/styles/system.css`; keep local component styling in `*.module.css`.
+- CSS-in-JS or token-driven projects: use a theme or token source such as `src/styles/theme.ts`, `src/theme/tokens.ts`, or the existing theme provider.
+- UI-library theme projects: prefer the library theme provider or token config for global component decisions.
+- Use the chosen system style entry for system-level CSS variables, tokens, base surfaces, typography defaults, radius/spacing/shadow scales, semantic colors, focus rings, and shared low-level utility classes.
 - Keep component-specific styles inside the component or component stylesheet.
 - Keep page-specific composition styles inside the page or feature folder.
-- Import `system.scss` once from the app entry or root stylesheet.
-- If a project already has `tokens.scss`, `variables.scss`, `theme.scss`, `global.scss`, Tailwind config, or a UI-library theme provider, follow and extend the existing convention instead of adding `system.scss`.
+- Import the system style entry once from the app entry or root stylesheet when the stack uses global CSS.
+- If a project already has `tokens`, `variables`, `theme`, `global`, Tailwind config, CSS-in-JS theme files, or a UI-library theme provider, follow and extend the existing convention instead of adding a new system file.
 - For global user requests such as "make all corners 2px" or "change the project primary color", update the system style source of truth, not isolated page styles.
 - For local customization requests, use local classes or component variants without changing global tokens.
 
 ## CSS Reuse Rules
 
 - Reuse existing tokens, utility classes, shared components, and variants before creating new CSS.
-- Promote a style into `system.scss`, tokens, or a shared component only when it represents a cross-page rule or appears in repeated UI.
+- Promote a style into the system style entry, tokens, theme config, or a shared component only when it represents a cross-page rule or appears in repeated UI.
 - Do not duplicate the same color, radius, spacing, shadow, or focus treatment across files with hard-coded values.
 - Use semantic names for reusable styles, such as `--color-primary`, `--surface-muted`, `--radius-card`, `--shadow-panel`, or `panel-card`, instead of visual names tied to one screen.
 - Keep CSS close to the narrowest correct owner: system tokens for global decisions, shared components for repeated behavior, pages for layout composition, and local classes for one-off exceptions.
